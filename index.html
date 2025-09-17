@@ -28,16 +28,26 @@
       </div>
     </div>
 
+    <!-- Botões para rolar -->
+    <div style="display:flex; justify-content:center; gap:16px; margin:16px 0;">
+      <button onclick="scrollFlex(-1)">◀️</button>
+      <button onclick="scrollFlex(1)">▶️</button>
+    </div>
+
+    <script>
+      function scrollFlex(direction) {
+        const container = document.getElementById('flex-container');
+        const scrollAmount = 400; // ajuste conforme necessário
+        container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+      }
+    </script>
+
     <div id="box-info">
       <div id="sobre">
         <h1>Bem-vindos!</h1>
-        <a
-          >Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
+        <p>
+          Descubra Jaguariúna, uma cidade encantadora no interior paulista! Venha conhecer suas belezas naturais, a famosa Maria Fumaça, parques incríveis e uma gastronomia acolhedora. Jaguariúna é o destino perfeito para quem busca lazer, cultura e tranquilidade, com atrações para toda a família. Surpreenda-se com a hospitalidade local e viva experiências únicas. Venha interiorzar-se em Jaguariúna!
+        </p>
           the release of Letraset sheets containing Lorem Ipsum passages, and
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.</a
@@ -45,8 +55,8 @@
       </div>
 
       <div id="botoes">
-        <button>Entrar</button>
-        <button>Locais</button>
+        <button onclick="location.href='./locais.html'">Entrar</button>
+        <button onclick="location.href='./locais.html'">Locais</button>
       </div>
     </div>
   </body>
