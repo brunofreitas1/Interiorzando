@@ -1,4 +1,314 @@
-/* Estilos página Contato */
+/* Reset e estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: url(./assets/jaguariuna.jpg) no-repeat top center/cover;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Navegação */
+nav {
+  display: flex;
+  width: 100%;
+  height: 65px;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: rgb(111, 250, 238);
+  z-index: 1000;
+}
+
+nav h1 {
+  margin-left: 60px;
+  font-size: 25px;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+ul li {
+  padding: 0px 50px;
+  list-style: none;
+}
+
+ul li a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #fff;
+}
+
+/* Container flex principal */
+#flex-container {
+  display: flex;
+  margin-top: 54px;
+  height: 500px;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding: 0 20px 10px 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#flex-container::-webkit-scrollbar {
+  display: none;
+}
+
+.flex-item {
+  border: 8px solid rgb(111, 250, 238);
+  width: 800px;
+  height: 100%;
+  border-radius: 40px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+.flex-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Botões de navegação */
+.scroll-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.scroll-buttons button {
+  background: rgb(111, 250, 238);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-buttons button:hover {
+  background-color: #02e5f5;
+}
+
+/* Box info */
+#box-info {
+  margin-top: 40px;
+  display: flex;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
+  min-height: 350px;
+  align-items: stretch;
+  width: 100%;
+}
+
+#sobre {
+  width: 55%;
+  border-right: 8px solid rgb(111, 250, 238);
+  border-radius: 0 0 0 32px;
+  padding: 40px 40px 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#sobre h1 {
+  margin-bottom: 24px;
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+}
+
+#sobre p {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+#botoes {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+#botoes button {
+  width: 300px;
+  height: 100px;
+  background-color: rgb(111, 250, 238);
+  border-radius: 20px;
+  font-size: 2rem;
+  font-family: inherit;
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#botoes button:hover {
+  background-color: #02e5f5;
+}
+
+/* Página Locais */
+#locais-container,
+.locais-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  justify-items: center;
+  margin: 40px auto;
+  padding: 32px;
+  max-width: 1400px;
+}
+
+.local-card {
+  background: rgb(111, 250, 238);
+  border-radius: 24px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 340px;
+  padding: 0 0 18px 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.3s ease;
+}
+
+.local-card:hover {
+  transform: translateY(-5px);
+}
+
+.local-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  margin-bottom: 0;
+}
+
+.local-nome {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 12px 0 4px 0;
+  color: #222;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.local-desc {
+  font-size: 1rem;
+  color: #444;
+  text-align: left;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.local-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #19b319;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  z-index: 2;
+  text-decoration: none;
+}
+
+.local-card:hover .local-hover {
+  opacity: 1;
+}
+
+/* Página Sobre */
+.sobre-container {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 32px;
+  padding: 40px 48px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.sobre-container h1 {
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
+
+.sobre-hr {
+  border: none;
+  border-top: 4px solid rgb(111, 250, 238);
+  margin-bottom: 32px;
+}
+
+.sobre-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.sobre-texto {
+  flex: 2;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.sobre-imagem {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sobre-imagem img {
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+/* Página Contato */
 .contato-container {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 32px;
@@ -76,6 +386,11 @@
   padding: 12px 32px;
   font-size: 1.2rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+  background: #a85448;
 }
 
 .btn-enviar {
@@ -86,269 +401,420 @@
   padding: 12px 32px;
   font-size: 1.2rem;
   cursor: pointer;
-}
-/* Estilos página Sobre */
-.sobre-container {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 32px;
-  padding: 40px 48px;
-  max-width: 1200px;
-  margin: 40px auto;
+  transition: background-color 0.3s ease;
 }
 
-.sobre-container h1 {
-  color: #fff;
-  font-size: 3rem;
-  margin-bottom: 0.5em;
-}
-
-.sobre-hr {
-  border: none;
-  border-top: 4px solid rgb(111, 250, 238);
-  margin-bottom: 32px;
-}
-
-.sobre-content {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-}
-
-.sobre-texto {
-  flex: 2;
-  color: #fff;
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
-.sobre-imagem {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.sobre-imagem img {
-  max-width: 100%;
-  border-radius: 16px;
-}
-#locais-container,
-.locais-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  justify-items: center;
-  margin-bottom: 40px;
-}
-
-.local-card {
-  background: rgb(111, 250, 238);
-  border-radius: 24px;
-  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
-  width: 340px;
-  padding: 0 0 18px 0;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s;
-}
-.local-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 24px 24px 0 0;
-  margin-bottom: 0;
-}
-.local-preco {
-  width: 100%;
-  background: #19b319;
-  color: #fff;
-  font-size: 1.6rem;
-  text-align: center;
-  padding: 8px 0;
-  font-weight: bold;
-}
-.local-nome {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin: 12px 0 4px 0;
-  color: #222;
-}
-.local-desc {
-  font-size: 1rem;
-  color: #444;
-  text-align: left;
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-.local-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #19b319;
-  color: #fff;
-  font-size: 2.2rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s;
-  cursor: pointer;
-  z-index: 2;
-}
-.local-card:hover .local-hover {
-  opacity: 1;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-body {
-  background: url(./assets/jaguariuna.jpg) no-repeat top center/cover;
-  min-height: 100vh;
-  background-attachment: fixed;
-}
-
-nav {
-  display: flex;
-  width: 100%;
-  height: 65px;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background-color: rgb(111, 250, 238);
-}
-
-nav h1 {
-  margin-left: 60px;
-  font-size: 25px;
-}
-
-ul {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 10px;
-}
-
-ul li {
-  padding: 0px 50px;
-  list-style: none;
-}
-
-ul li a {
-  font-size: 20px;
-    text-decoration: none;
-}
-
-#flex-container {
-  display: flex;
-  margin-top: 54px;
-  height: 500px;
-  gap: 18px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-#flex-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari e Opera */
-}
-
-.flex-item {
-  border: 8px solid rgb(111, 250, 238);
-  width: 800px;
-  height: 100%;
-  border-radius: 40px;
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
-}
-
-.flex-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 32px;
-  pointer-events: none;
-  user-select: none;
-}
-
-#box-info {
-  margin-top: 40px;
-  display: flex;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  border-radius: 0 0 32px 32px;
-  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
-  min-height: 350px;
-  align-items: stretch;
-  width: 100%;
-  max-width: 100vw;
-}
-
-#sobre {
-  width: 55%;
-  border-right: 8px solid rgb(111, 250, 238);
-  border-radius: 0 0 0 32px;
-  padding: 40px 40px 40px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#sobre h1 {
-  margin-bottom: 24px;
-  font-family: "Pacifico", cursive;
-  font-size: 3rem;
-}
-
-#sobre a {
-  display: block;
-  margin-bottom: 0;
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
-#botoes {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 40px 0;
-}
-
-#botoes button {
-  width: 300px;
-  height: 100px;
-  background-color: rgb(111, 250, 238);
-  border-radius: 20px;
-  font-size: 2rem;
-  font-family: inherit;
-  border: none;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-#botoes button:hover {
+.btn-enviar:hover {
   background-color: #02e5f5;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* TABLET (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  /* Navegação */
+  nav h1 {
+    margin-left: 30px;
+    font-size: 22px;
+  }
+
+  ul li {
+    padding: 0px 25px;
+  }
+
+  ul li a {
+    font-size: 18px;
+  }
+
+  /* Container flex */
+  #flex-container {
+    height: 350px;
+    margin-top: 30px;
+    padding: 0 15px 10px 15px;
+  }
+
+  .flex-item {
+    width: 600px;
+    border-width: 6px;
+    border-radius: 30px;
+  }
+
+  .flex-item img {
+    border-radius: 24px;
+  }
+
+  /* Box info */
+  #box-info {
+    margin-top: 30px;
+    min-height: 300px;
+  }
+
+  #sobre {
+    padding: 30px 30px 30px 40px;
+  }
+
+  #sobre h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  #sobre p {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  #botoes button {
+    width: 250px;
+    height: 80px;
+    font-size: 1.8rem;
+  }
+
+  /* Locais - 3 colunas */
+  .locais-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .local-card {
+    max-width: 300px;
+  }
+
+  .local-nome {
+    font-size: 1.2rem;
+  }
+
+  .local-desc {
+    font-size: 0.9rem;
+  }
+
+  .local-hover {
+    font-size: 2rem;
+  }
+
+  /* Containers gerais */
+  .sobre-container,
+  .contato-container {
+    margin: 30px 20px;
+    padding: 30px 35px;
+  }
+
+  .sobre-container h1,
+  .contato-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .sobre-content {
+    gap: 24px;
+  }
+
+  .sobre-texto {
+    font-size: 1.3rem;
+  }
+
+  /* Formulário de contato */
+  .contato-info {
+    font-size: 1.3rem;
+  }
+
+  .contato-formulario h2 {
+    font-size: 1.8rem;
+  }
+
+  .contato-formulario label {
+    font-size: 1.1rem;
+  }
+
+  .btn-cancelar,
+  .btn-enviar {
+    padding: 10px 24px;
+    font-size: 1.1rem;
+  }
+}
+
+/* MOBILE (320px - 768px) */
+@media screen and (max-width: 768px) {
+  /* Navegação mobile */
+  nav {
+    height: auto;
+    flex-direction: column;
+    padding: 15px 0;
+    position: relative;
+  }
+
+  nav h1 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+  }
+
+  ul {
+    justify-content: center;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+
+  ul li {
+    padding: 8px 15px;
+  }
+
+  ul li a {
+    font-size: 16px;
+  }
+
+  /* Container flex mobile */
+  #flex-container {
+    height: 250px;
+    margin-top: 20px;
+    padding: 0 10px 10px 10px;
+    gap: 12px;
+  }
+
+  .flex-item {
+    width: 300px;
+    border-width: 4px;
+    border-radius: 20px;
+  }
+
+  .flex-item img {
+    border-radius: 16px;
+  }
+
+  /* Botões de scroll mobile */
+  .scroll-buttons {
+    margin: 12px 0;
+  }
+
+  .scroll-buttons button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  /* Box info mobile */
+  #box-info {
+    margin-top: 20px;
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 0;
+  }
+
+  #sobre {
+    width: 100%;
+    border-right: none;
+    border-bottom: 8px solid rgb(111, 250, 238);
+    border-radius: 0;
+    padding: 30px 20px;
+  }
+
+  #sobre h1 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  #sobre p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  #botoes {
+    width: 100%;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+
+  #botoes button {
+    width: 80%;
+    max-width: 280px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+
+  /* Locais - 1 coluna mobile */
+  .locais-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+
+  .local-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .local-card img {
+    height: 200px;
+  }
+
+  .local-nome {
+    font-size: 1.3rem;
+    margin: 16px 0 8px 0;
+  }
+
+  .local-desc {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .local-hover {
+    font-size: 1.8rem;
+  }
+
+  /* Containers mobile */
+  .sobre-container,
+  .contato-container {
+    margin: 20px 10px;
+    padding: 25px 20px;
+    border-radius: 20px;
+  }
+
+  .sobre-container h1,
+  .contato-container h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  /* Sobre mobile */
+  .sobre-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sobre-texto {
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+
+  .sobre-imagem {
+    justify-content: center;
+  }
+
+  /* Contato mobile */
+  .contato-info {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .contato-formulario h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .contato-formulario label {
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+
+  .contato-formulario input,
+  .contato-formulario select,
+  .contato-formulario textarea {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .contato-botoes {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-cancelar,
+  .btn-enviar {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+
+  /* Mapa responsivo */
+  .contato-mapa iframe {
+    height: 200px;
+  }
+}
+
+/* MOBILE PEQUENO (320px - 480px) */
+@media screen and (max-width: 480px) {
+  nav h1 {
+    font-size: 20px;
+  }
+
+  ul li {
+    padding: 5px 10px;
+  }
+
+  ul li a {
+    font-size: 14px;
+  }
+
+  #flex-container {
+    height: 200px;
+  }
+
+  .flex-item {
+    width: 250px;
+  }
+
+  #sobre h1 {
+    font-size: 1.6rem;
+  }
+
+  #sobre p {
+    font-size: 1rem;
+  }
+
+  #botoes button {
+    font-size: 1.2rem;
+    height: 50px;
+  }
+
+  .local-card img {
+    height: 160px;
+  }
+
+  .local-nome {
+    font-size: 1.1rem;
+  }
+
+  .local-desc {
+    font-size: 0.9rem;
+  }
+
+  .sobre-container h1,
+  .contato-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .sobre-texto {
+    font-size: 1rem;
+  }
+
+  .contato-info {
+    font-size: 1rem;
+  }
+
+  .contato-formulario h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Melhorias de acessibilidade e UX */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  #flex-container {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ajustes para telas de alta densidade */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .flex-item img,
+  .local-card img,
+  .sobre-imagem img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
 }

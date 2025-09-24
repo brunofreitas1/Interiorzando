@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Jaguariúna</title>
+    <title>Jaguariúna - Interiorzando</title>
   </head>
   <body>
     <nav>
@@ -12,50 +12,68 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="locais.html">Locais</a></li>
-        <li><a href="contact.asp">História</a></li>
-        <li><a href="about.asp">Contato</a></li>
+        <li><a href="about.html">Sobre</a></li>
+        <li><a href="contact.html">Contato</a></li>
       </ul>
     </nav>
+
     <div id="flex-container">
       <div class="flex-item">
-        <img src="./assets/botequim.jpg" />
+        <img
+          src="./assets/botequim.jpg"
+          alt="Botequim tradicional de Jaguariúna"
+        />
       </div>
       <div class="flex-item">
-        <img src="./assets/pq_lagos.jpg" />
+        <img src="./assets/pq_lagos.jpg" alt="Parque dos Lagos" />
       </div>
       <div class="flex-item">
-        <img src="./assets/maria_fumaca.jpg" />
+        <img src="./assets/maria_fumaca.jpg" alt="Maria Fumaça histórica" />
       </div>
     </div>
 
     <!-- Botões para rolar -->
-    <div style="display:flex; justify-content:center; gap:16px; margin:16px 0;">
-      <button onclick="scrollFlex(-1)">◀️</button>
-      <button onclick="scrollFlex(1)">▶️</button>
+    <div class="scroll-buttons">
+      <button onclick="scrollFlex(-1)" aria-label="Imagem anterior">◀️</button>
+      <button onclick="scrollFlex(1)" aria-label="Próxima imagem">▶️</button>
     </div>
 
     <script>
       function scrollFlex(direction) {
-        const container = document.getElementById('flex-container');
-        const scrollAmount = 400; // ajuste conforme necessário
-        container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        const container = document.getElementById("flex-container")
+        const scrollAmount =
+          window.innerWidth <= 768 ? 250 : window.innerWidth <= 1024 ? 400 : 600
+        container.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        })
       }
+
+      // Auto-ajuste do scroll em redimensionamento
+      window.addEventListener("resize", function () {
+        const container = document.getElementById("flex-container")
+        container.scrollLeft = 0
+      })
     </script>
 
     <div id="box-info">
       <div id="sobre">
         <h1>Bem-vindos!</h1>
         <p>
-          Descubra Jaguariúna, uma cidade encantadora no interior paulista! Venha conhecer suas belezas naturais, a famosa Maria Fumaça, parques incríveis e uma gastronomia acolhedora. Jaguariúna é o destino perfeito para quem busca lazer, cultura e tranquilidade, com atrações para toda a família. Surpreenda-se com a hospitalidade local e viva experiências únicas. Venha interiorzar-se em Jaguariúna!
+          Descubra Jaguariúna, uma cidade encantadora no interior paulista!
+          Venha conhecer suas belezas naturais, a famosa Maria Fumaça, parques
+          incríveis e uma gastronomia acolhedora.
         </p>
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.</a
-        >
+        <p>
+          Jaguariúna é o destino perfeito para quem busca lazer, cultura e
+          tranquilidade, com atrações para toda a família. Surpreenda-se com a
+          hospitalidade local e viva experiências únicas. Venha interiorzar-se
+          em Jaguariúna!
+        </p>
       </div>
 
       <div id="botoes">
-        <button onclick="location.href='./locais.html'">Entrar</button>
+        <button onclick="location.href='./about.html'">Sobre Nós</button>
         <button onclick="location.href='./locais.html'">Locais</button>
       </div>
     </div>
