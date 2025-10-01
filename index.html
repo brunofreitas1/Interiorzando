@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./scripts.js" defer></script>
+    <script src="./advanced-features.js" defer></script>
     <title>Jaguariúna - Interiorzando</title>
   </head>
   <body>
@@ -17,6 +19,7 @@
       </ul>
     </nav>
 
+    <main id="main">
     <div id="flex-container">
       <div class="flex-item">
         <img
@@ -43,10 +46,14 @@
         const container = document.getElementById("flex-container")
         const scrollAmount =
           window.innerWidth <= 768 ? 250 : window.innerWidth <= 1024 ? 400 : 600
+        
         container.scrollBy({
           left: direction * scrollAmount,
           behavior: "smooth",
         })
+        
+        // Feedback visual
+        showNotification(direction > 0 ? 'Próxima imagem' : 'Imagem anterior', 'info', 1500);
       }
 
       // Auto-ajuste do scroll em redimensionamento
@@ -54,6 +61,61 @@
         const container = document.getElementById("flex-container")
         container.scrollLeft = 0
       })
+
+      // Auto-play do carrossel (opcional)
+      let autoPlayInterval;
+      
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+          const container = document.getElementById("flex-container");
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          
+          if (container.scrollLeft >= maxScroll) {
+            container.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            scrollFlex(1);
+          }
+        }, 5000);
+      }
+
+      function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+      }
+
+      // Controles do auto-play
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById("flex-container");
+        
+        // Pausar auto-play ao passar o mouse
+        container.addEventListener('mouseenter', stopAutoPlay);
+        container.addEventListener('mouseleave', startAutoPlay);
+        
+        // Iniciar auto-play
+        startAutoPlay();
+
+        // Adicionar indicadores
+        const scrollButtons = document.querySelector('.scroll-buttons');
+        const playPauseBtn = document.createElement('button');
+        playPauseBtn.innerHTML = '⏸️';
+        playPauseBtn.title = 'Pausar/Reproduzir carrossel';
+        playPauseBtn.style.marginLeft = '10px';
+        
+        let isPlaying = true;
+        playPauseBtn.addEventListener('click', () => {
+          if (isPlaying) {
+            stopAutoPlay();
+            playPauseBtn.innerHTML = '▶️';
+            showNotification('Carrossel pausado', 'info', 2000);
+          } else {
+            startAutoPlay();
+            playPauseBtn.innerHTML = '⏸️';
+            showNotification('Carrossel retomado', 'info', 2000);
+          }
+          isPlaying = !isPlaying;
+        });
+        
+        scrollButtons.appendChild(playPauseBtn);
+      });
     </script>
 
     <div id="box-info">
@@ -73,9 +135,10 @@
       </div>
 
       <div id="botoes">
-        <button onclick="location.href='./about.html'">Sobre Nós</button>
-        <button onclick="location.href='./locais.html'">Locais</button>
+        <button onclick="showNotification('Redirecionando para Sobre Nós...', 'info', 2000); setTimeout(() => location.href='./about.html', 1000)">Sobre Nós</button>
+        <button onclick="showNotification('Redirecionando para Locais...', 'info', 2000); setTimeout(() => location.href='./locais.html', 1000)">Locais</button>
       </div>
     </div>
+    </main>
   </body>
 </html>
